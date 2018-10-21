@@ -11,7 +11,9 @@ RUN cd \
     && cp -R vintage-basic-1.0.3-linux-x86_64/share /usr/local \
     && wget http://www.vintage-basic.net/downloads/bcg.tar.gz \
     && tar -xvzf bcg.tar.gz \
-    && mv bcg /
+    && mv bcg / \
+    && chown -R nobody:nobody /bcg \
+    && rm -f *.gz
 
 WORKDIR bcg
 EXPOSE 7681
