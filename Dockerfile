@@ -15,9 +15,11 @@ RUN cd \
     && chown -R nobody:nobody /bcg \
     && rm -f *.gz
 
+ADD commands.sh /etc/profile.d/
+
 WORKDIR bcg
 EXPOSE 7681
 USER nobody
 
 ENTRYPOINT ["ttyd"]
-CMD ["bash"]
+CMD ["bash", "-l"]
